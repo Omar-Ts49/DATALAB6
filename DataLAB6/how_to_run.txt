@@ -1,0 +1,10 @@
+To run the followings CLI to query info from the database: 
+=> Run the following command prompts in your command line : 
+    -> Command list patients: 
+        python LAB6.py list_patients
+    -> Command schedule appt :
+        python LAB6.py schedule_appt --caid "input_value" --iid "input_value" --staff "input_value" --dep "input_value" --date""input_value: YYYY-MM-DD" --time "input_value: HH:MM:SS" --reason "input_value" 
+    -> Command low stock : 
+        python LAB6.py low_stock
+    -> Command staff share : 
+        python LAB6.py staff_share
