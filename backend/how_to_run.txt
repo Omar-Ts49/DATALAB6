@@ -1,4 +1,6 @@
 To run the followings CLI to query info from the database: 
+PLEASE NOTE: In order to make the queries work we had to create our own environment in which many libs were installed (following the instructions given in the lab) 
+therefore, to use our CLI on your machine all of the libs must be installed
 => Run the following command prompts in your command line : 
     -> Command list patients: 
         python LAB6.py list_patients

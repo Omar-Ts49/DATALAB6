@@ -25,7 +25,6 @@ def list_patients_ordered_by_last_name(limit=20):
             results = cur.fetchall()  # fetch inside the context
     return results
 
-
 def insert_patient(iid, cin, full_name, birth, sex, blood, phone):
     sql = """
     INSERT INTO Patient(IID, CIN, FullName, Birth, Sex, BloodGroup, Phone)
@@ -39,10 +38,12 @@ def insert_patient(iid, cin, full_name, birth, sex, blood, phone):
         except Exception:
             cnx.rollback()
             raise
-
+'''
 if __name__ == "__main__":
     for row in list_patients_ordered_by_last_name():
-        print(f"{ row['IID']} { row['FullName']} ")
+        print(f"{ row['IID']} { row['FullName']} ")  # this is what forces out the printing of the first query without calling it.
+
+'''
 
 # Transactions across multiple statements. 
 
@@ -111,8 +112,8 @@ from dotenv import load_dotenv
 load_dotenv()
 url = (
     "mysql+mysqlconnector://"
-    f"{ os.getenv('MYSQL_USER')} :{ os.getenv('MYSQL_PASSWORD')} "
-    f"@{ os.getenv('MYSQL_HOST')} :{ os.getenv('MYSQL_PORT')} /{ os.getenv('MYSQL_DB')} "
+    f"{ os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}"
+    f"@{ os.getenv('MYSQL_HOST')}:{os.getenv('MYSQL_PORT')}/{os.getenv('MYSQL_DB')}"
 )
 engine = create_engine(url, pool_pre_ping=True)
 q = text("""
@@ -123,7 +124,7 @@ JOIN Hospital H ON H.HID = S.HID
 GROUP BY M.MID, M.Name, H.City
 """)
 df = pd.read_sql(q, engine)
-print(df.head())
+#print(df.head()) Is this valid, since it is always printed no matter the command we execute.
 
 
 
