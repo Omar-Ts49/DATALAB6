@@ -19,3 +19,19 @@ Run the following commands from your terminal:
 ### List Patients
 ```bash
 python cli.py list_patients
+```
+
+### Schedule Appointment
+```bash
+python cli.py schedule_appt --caid "input_value" --iid "input_value" --staff "input_value" --dep "input_value" --date "YYYY-MM-DD" --time "HH:MM:SS" --reason "input_value"
+```
+
+### Check Low Stock
+```bash
+python cli.py low_stock
+```
+
+### Staff Share
+```bash
+python cli.py staff_share
+```
